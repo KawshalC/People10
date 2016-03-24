@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>People10</title>
+    <link rel="icon" href="Images/people10.png" />
+    <link href="Content/Styles/bootstrap.css" rel="stylesheet" />
+    <script src="Scripts/lib/jquery-2.1.3.min.js"></script>
+    <script src="Scripts/lib/bootstrap.js"></script>
+    <script src="Scripts/lib/angular.js"></script>
+    <link href="Content/Styles/index.css" rel="stylesheet" />
+    <script src="Scripts/app/app.js"></script>
+    <script src="Scripts/app/dataFetcherService.js"></script>
+    <script src="Scripts/app/MainController.js"></script>
+</head>
+<body ng-app="people10App" ng-init="selectedCategory='Select Category'">
+    <div class="container-fluid" ng-controller="MainController" ng-init="getCategoryData()" id="mainContainer">
+        <div class="row">
+            <div class="col-xs-12" id="dropdownSection">
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                        {{selectedCategory}}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li ng-repeat="category in categoryList" ng-click="selectCategory(category)"><a href="#">{{category.Name}}</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div ng-if="productList.length>0" id="grid" class="row">
+                <div class="col-xs-12" id="gridHeader">
+                    <div class="col-xs-1">
+                        ID
+                    </div>
+                    <div class="col-xs-3">
+                        Name
+                    </div>
+                    <div class="col-xs-5">
+                        Description
+                    </div>
+                    <div class="col-xs-3">
+                        Price
+                    </div>
+                </div>
+                <div class="col-xs-12" ng-repeat="product in productList" id="gridBody">
+                    <div class="col-xs-1">
+                        {{product.ID}}
+                    </div>
+                    <div class="col-xs-3">
+                        {{product.Name}}
+                    </div>
+                    <div class="col-xs-5 overflow" title="{{product.Description}}">
+                        {{product.Description}}
+                    </div>
+                    <div class="col-xs-3">
+                        {{product.Price | currency}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

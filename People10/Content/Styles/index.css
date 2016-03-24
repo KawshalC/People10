@@ -1,0 +1,28 @@
+@font-face {
+    font-family: roboto;
+    src: url(../Fonts/Roboto-Regular.ttf);
+}
+body{
+    font-size:16px;
+    font-family:roboto;
+}
+#mainContainer {
+    padding-top:30px;
+}
+#dropdownSection .dropdown-menu,#dropdownSection .btn{
+    font-size:1.4em!important;
+}
+#grid {
+    padding:15px;
+    font-size:1.4em;
+}
+    #grid #gridHeader {
+        background-color:#d5d5d5;
+        font-size:1.2em;
+        margin-top:20px;
+    }
+.overflow {
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
